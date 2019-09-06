@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 const user = 'adi';
 const pass = '1234';
 const feePerMinute = 0.2; //usd dollars
