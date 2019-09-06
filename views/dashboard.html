@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="stylesheet/dashboard.css" />
+		<script defer src="javascript/dashboard.js"></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Admin Dashboard</h1>
+		</div>
+		<div class="content">
+			<h2>Active sessions</h2>
+			<div class="table-container sessions-active">
+				<table>
+					<thead>
+						<tr>
+							<td>ID</td>
+							<td>Username</td>
+							<td>Start date</td>
+							<!-- <td>End date</td> -->
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<h2>Finished sessions</h2>
+			<div class="table-container sessions-finished">
+				<table>
+					<thead>
+						<tr>
+							<td>ID</td>
+							<td>Username</td>
+							<td>Start date</td>
+							<td>End date</td>
+							<td>Fee</td>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<button id="insertActive">Insert Active</button>
+			<button id="insertFinished">Insert Finished</button>
+			<button id="removeActive">Remove Active (caco)</button>
+			<button id="handlerTest">Handler Test (caco)</button>
+		</div>
+	</body>
+</html>
