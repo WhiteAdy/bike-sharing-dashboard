@@ -175,7 +175,7 @@ app.post('/sessionHandler', (req, res) => {
 
 				//Clone it to the sessions-finished collection together with the end date and fee
 				collection = db.collection('sessions-finished');
-				const endDate = new Date().toLocaleString();
+				let endDate = new Date().toLocaleString();
 				const fee = (
 					((Date.parse(endDate) - Date.parse(docs[0].start)) * feePerMinute) /
 					1000 /
@@ -195,7 +195,7 @@ app.post('/sessionHandler', (req, res) => {
 			} else {
 				//Create a new document in the sessions-active collection
 				console.log('didnt find it in the session-active, will add it now');
-				const startDate = new Date().toLocaleString();
+				let startDate = new Date().toLocaleString();
 				insertDocumentSessionActive(db, req.body.name, startDate);
 			}
 		});
