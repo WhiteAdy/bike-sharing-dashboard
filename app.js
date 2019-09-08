@@ -200,8 +200,9 @@ app.post('/sessionHandler', (req, res) => {
 			}
 		});
 
-		// client.close();
+		client.close();
 	});
+	res.status(200);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
