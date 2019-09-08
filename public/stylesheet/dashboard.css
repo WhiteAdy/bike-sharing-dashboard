@@ -10,6 +10,19 @@ body {
 	background: linear-gradient(45deg, #4158d0, #c850c0);
 	font-family: sans-serif;
 }
+body::after {
+	content: '';
+	background: #fff;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	z-index: 10;
+	transition: all 0.15s;
+	transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
 h1,
 h2 {
 	text-align: center;
@@ -57,4 +70,11 @@ table thead tr {
 	background: #36304a;
 	color: #fff;
 	height: 50px;
+}
+body.flash::after {
+	opacity: 1;
+}
+
+.hidden {
+	display: none;
 }
