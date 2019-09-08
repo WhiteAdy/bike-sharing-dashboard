@@ -105,6 +105,7 @@ app.post('/sessions-active-remove', (req, res) => {
 		assert.equal(null, err);
 		const db = client.db(dbName);
 		removeDocumentSessionActive(db, req.body.name);
+		client.close();
 	});
 });
 
@@ -124,7 +125,7 @@ app.get('/sessions-active', (req, res) => {
 			res.send(docs);
 		});
 
-		// client.close();
+		client.close();
 	});
 });
 
@@ -144,7 +145,7 @@ app.get('/sessions-finished', (req, res) => {
 			res.send(docs);
 		});
 
-		// client.close();
+		client.close();
 	});
 });
 
@@ -154,7 +155,7 @@ app.post('/dashboard', (req, res) => {
 	if (req.body.username === user && req.body.password === pass) {
 		res.sendFile(__dirname + '/views/dashboard.html');
 	} else {
-		res.send('Wrong username/password');
+		res.status(200).send('Wrong username/password');
 	}
 	console.log(req.body);
 });
@@ -202,7 +203,7 @@ app.post('/sessionHandler', (req, res) => {
 
 		client.close();
 	});
-	res.status(200);
+	res.sendStatus(200);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
