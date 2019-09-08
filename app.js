@@ -92,7 +92,8 @@ client
 						collection = db.collection('sessions-active');
 						collection.deleteOne({ user: req.body.name }).then(() => {
 							console.log(
-								'Removed the document with the field name equal to ' + user
+								'Removed the document with the field name equal to ' +
+									req.body.name
 							);
 						});
 					} else {
