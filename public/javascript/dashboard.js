@@ -79,7 +79,7 @@ fetchSessionsActive();
 setInterval(() => {
 	fetchSessionsActive();
 	fetchSessionsFinished();
-}, 2000);
+}, 2500);
 
 insertActiveButton.addEventListener('click', () => {
 	fetch(`${basePath}/sessions-active-add`, {
