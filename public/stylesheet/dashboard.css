@@ -20,8 +20,9 @@ body::after {
 	right: 0;
 	opacity: 0;
 	z-index: 10;
-	transition: all 0.15s;
+	transition: all 0.12s;
 	transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+	visibility: hidden;
 }
 h1,
 h2 {
@@ -73,6 +74,7 @@ table thead tr {
 }
 body.flash::after {
 	opacity: 1;
+	visibility: visible;
 }
 
 .hidden {

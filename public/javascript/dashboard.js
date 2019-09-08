@@ -26,7 +26,7 @@ let flashScreen = () => {
 	body.classList.add('flash');
 	setTimeout(() => {
 		body.classList.remove('flash');
-	}, 150);
+	}, 120);
 };
 
 let fetchSessionsFinished = () => {
@@ -79,7 +79,7 @@ fetchSessionsActive();
 setInterval(() => {
 	fetchSessionsActive();
 	fetchSessionsFinished();
-}, 5000);
+}, 2000);
 
 insertActiveButton.addEventListener('click', () => {
 	fetch(`${basePath}/sessions-active-add`, {
