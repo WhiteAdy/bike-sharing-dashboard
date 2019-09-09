@@ -37,8 +37,11 @@ let fetchSessionsFinished = () => {
 				flashScreen();
 				array_sessionsFinished = data;
 				sessionsFinishedTable.children[0].children[1].innerHTML = '';
-				data.forEach(document => {
-					sessionsFinishedTable.children[0].children[1].innerHTML += `
+				data
+					.slice()
+					.reverse()
+					.forEach(document => {
+						sessionsFinishedTable.children[0].children[1].innerHTML += `
 				<tr>
 					<td>${document._id}</td>
 					<td>${document.user}</td>
@@ -47,7 +50,7 @@ let fetchSessionsFinished = () => {
 					<td>$${document.fee}</td>
 				</tr>
 				`;
-				});
+					});
 			}
 		});
 };
@@ -60,15 +63,18 @@ let fetchSessionsActive = () => {
 				flashScreen();
 				array_sessionsActive = data;
 				sessionsActiveTable.children[0].children[1].innerHTML = '';
-				data.forEach(document => {
-					sessionsActiveTable.children[0].children[1].innerHTML += `
+				data
+					.slice()
+					.reverse()
+					.forEach(document => {
+						sessionsActiveTable.children[0].children[1].innerHTML += `
 				<tr>
 					<td>${document._id}</td>
 					<td>${document.user}</td>
 					<td>${document.start}</td>
 				</tr>
 				`;
-				});
+					});
 			}
 		});
 };
