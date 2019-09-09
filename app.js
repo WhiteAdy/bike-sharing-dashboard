@@ -105,7 +105,7 @@ client
 						collection = db.collection('sessions-active');
 						collection.insertOne({ user: req.body.name, start: startDate });
 					}
-					res.sendStatus(200);
+					res.Status(200).send('CACAT');
 				})
 				.catch(err => {
 					throw new Error(
