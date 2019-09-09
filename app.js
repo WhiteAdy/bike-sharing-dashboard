@@ -50,7 +50,7 @@ client
 		app.get('/sessions-finished', (req, res) => {
 			const db = client.db(dbName);
 			const collection = db.collection('sessions-finished');
-			collection.find({ user: 'Cristina' }).toArray(function(err, docs) {
+			collection.find({}).toArray(function(err, docs) {
 				console.log(
 					'Received a GET request to /sessions-finished. Found the following records:'
 				);
