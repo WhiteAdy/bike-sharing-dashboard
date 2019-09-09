@@ -105,13 +105,13 @@ client
 						collection = db.collection('sessions-active');
 						collection.insertOne({ user: req.body.name, start: startDate });
 					}
-					res.Status(200).send('CACAT');
+					res.status(200).send('CACAT');
 				})
 				.catch(err => {
+					res.sendStatus(500);
 					throw new Error(
 						'Something bad happened while trying to look in the database'
 					);
-					res.sendStatus(500);
 				});
 		});
 	})
