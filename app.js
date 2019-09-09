@@ -88,6 +88,22 @@ client
 							end: endDate,
 							fee: fee
 						});
+
+						//Substract the fee amount from the account balance
+						collection = db.collection('users');
+						collection
+							.findOneAndUpdate(
+								{ name: req.body.name },
+								{ $inc: { balance: -fee } },
+								{ returnOriginal: false }
+							)
+							.then(newDocument => {
+								let newBalanceResponse =
+									'Cont: ' + newDocument.value.balance.toFixed(2);
+								//Send the new balance as a response string
+								res.status(200).send(newBalanceResponse);
+							});
+
 						//Remove it from the sessions-active collection
 						collection = db.collection('sessions-active');
 						collection.deleteOne({ user: req.body.name }).then(() => {
@@ -104,8 +120,16 @@ client
 						let startDate = new Date().toLocaleString();
 						collection = db.collection('sessions-active');
 						collection.insertOne({ user: req.body.name, start: startDate });
+
+						//Find the current account balance
+						collection = db.collection('users');
+						collection.findOne({ name: req.body.name }).then(sameDocument => {
+							let sameBalanceResponse =
+								'Cont: ' + sameDocument.balance.toFixed(2);
+							//Send the current balance as a response string
+							res.status(200).send(sameBalanceResponse);
+						});
 					}
-					res.status(200).send('CACAT');
 				})
 				.catch(err => {
 					res.sendStatus(500);
