@@ -125,7 +125,7 @@ client
 						collection = db.collection('users');
 						collection.findOne({ name: req.body.name }).then(sameDocument => {
 							let sameBalanceResponse =
-								'Cont: ' + sameDocument.balance.toFixed(2);
+								'Cont:' + sameDocument.balance.toFixed(2);
 							//Send the current balance as a response string
 							res.status(200).send(sameBalanceResponse);
 						});
