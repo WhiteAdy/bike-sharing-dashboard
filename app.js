@@ -128,6 +128,7 @@ client
 								'Cont:' + sameDocument.balance.toFixed(2);
 							//Send the current balance as a response string
 							res.status(200).send(sameBalanceResponse);
+							console.log('text');
 						});
 					}
 				})
